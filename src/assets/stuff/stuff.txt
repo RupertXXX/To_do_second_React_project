@@ -41,3 +41,21 @@
     -->
   </body>
 </html>
+
+
+
+import React, { PureComponent } from 'react';
+
+class Register extends PureComponent {
+    
+
+    render() {
+        return <>
+
+        </>
+    }
+}
+
+export default Register;
+
+id = 60440e7270e686001720ce3f
