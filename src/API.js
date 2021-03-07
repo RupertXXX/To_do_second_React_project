@@ -16,16 +16,24 @@ export const authAPI = {
     loginUser(email, password) {
         return instance.post(`user/login`, {
             email: email,
-            password: password,
+            password: password
         });
     },
-    logoutUser() {
-        return instance.post(`user/logout`, {});
+    logoutUser(token) {
+        return instance.post(`user/logout`, {}, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
+        });
     },
 }
 export const userAPI = {
-    getUser() {
-        return instance.get(`user/me`)
+    getUser(token) {
+        return instance.get(`user/me`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
         .then(response => {
             return response;
         });

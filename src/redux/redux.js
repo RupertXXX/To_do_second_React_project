@@ -6,7 +6,7 @@ import {reducer as formReducer} from 'redux-form'
 
 
 let reducers = combineReducers({
-    auth: userReducer,
+    user: userReducer,
     form: formReducer,
     app: appReducer,
 });

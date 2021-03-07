@@ -1,5 +1,6 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form';
+import {Redirect} from 'react-router-dom';
 import c from './login.module.css';
 
 const LoginForm = (props) => {
@@ -31,8 +32,17 @@ const Login = (props) => {
         props.loginUser(formData.email, formData.password);
     }
     return <>
-        <div>Login</div>
-        <LoginFormWithRedux onSubmit={login} />
+        {
+            !props.isLogin 
+            ? 
+                <>
+                    <div>Login</div>
+                    <LoginFormWithRedux onSubmit={login} />
+                </>
+            :
+                <Redirect to="/notes" />
+        }
+        <button onClick={() => props.logoutUser()}>logout</button>
     </>
 }
 

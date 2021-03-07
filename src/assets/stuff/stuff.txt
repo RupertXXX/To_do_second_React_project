@@ -59,3 +59,27 @@ class Register extends PureComponent {
 export default Register;
 
 id = 60440e7270e686001720ce3f
+
+"user":
+  "age":20,
+  "_id":"60450f495108bd001760465d",
+  "name":"Dima",
+  "email":"dimakubb@gmail.com",
+  "createdAt":"2021-03-07T17:37:13.183Z",
+  "updatedAt":"2021-03-07T17:37:13.584Z",
+  "__v":1},
+  "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDQ1MGY0OTUxMDhiZDAwMTc2MDQ2NWQiLCJpYXQiOjE2MTUxMzg2MzN9.iQfH95ljdd0pQtSSDzXhLVzSCfrDD0MkLyOcKFvTDKc"
+
+"user": 
+  "age":20,
+  "_id":"604514855108bd0017604664",
+  "name":"Nikolai2",
+  "email":"nicolaisssm@gmail.com",
+  "createdAt":"2021-03-07T17:59:33.550Z",
+  "updatedAt":"2021-03-07T17:59:33.949Z",
+  "__v":1,
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDQ1MTQ4NTUxMDhiZDAwMTc2MDQ2NjQiLCJpYXQiOjE2MTUxMzk5NzN9.ObJUmIl0KaB3lg16V5IVNsXYpx6Of8tUpE0G5mqQlWo"
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDQ1MTQ4NTUxMDhiZDAwMTc2MDQ2NjQiLCJpYXQiOjE2MTUxNDAzNTl9.1dGHshe8mpRbCuTn0nVFJmHrCJh9donsxK1e3X6XCr8
+  {"user":{"age":20,"_id":"604514855108bd0017604664","name":"Nikolai2","email":"nicolaisssm@gmail.com","createdAt":"2021-03-07T17:59:33.550Z","updatedAt":"2021-03-07T18:05:59.936Z","__v":2},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDQ1MTQ4NTUxMDhiZDAwMTc2MDQ2NjQiLCJpYXQiOjE2MTUxNDAzNTl9.1dGHshe8mpRbCuTn0nVFJmHrCJh9donsxK1e3X6XCr8"}
+  {"user":{"age":20,"_id":"604514855108bd0017604664","name":"Nikolai2","email":"nicolaisssm@gmail.com","createdAt":"2021-03-07T17:59:33.550Z","updatedAt":"2021-03-07T18:09:01.390Z","__v":3},"token":"
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDQ1MTQ4NTUxMDhiZDAwMTc2MDQ2NjQiLCJpYXQiOjE2MTUxNDA1NDF9.eYjzupa8VV4wE0sLiIQ9MiZaLT8i3CfxVVx_ASX_h_o"}
