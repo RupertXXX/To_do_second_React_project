@@ -5,7 +5,9 @@ import withErrorBoundary from '../../HOCs/withErrorBoundary';
 import Register from './register';
 
 let mapStateToProps = (state) => {
-    return ({})
+    return {
+        isLogin: state.user.isLogin,
+    }
 }
 
 let mapDispatchToProps = (dispatch) => {

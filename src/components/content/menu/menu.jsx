@@ -6,6 +6,41 @@ const Menu = () => {
         <div className={c.main}>
             <div className={c.title}>Menu</div>
             <div className={c.line}></div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            <div className={c.title}>Menu</div>
+            
         </div>
     </>
 }

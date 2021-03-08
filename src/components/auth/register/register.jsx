@@ -1,5 +1,6 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form';
+import {Redirect} from 'react-router-dom';
 import c from './register.module.css';
 
 const RegisterForm = (props) => {
@@ -38,8 +39,16 @@ const Register = (props) => {
         props.registerUser(formData.name, formData.email, formData.password, formData.age);
     }
     return <>
-        <div>Registry</div>
-        <RegisterFormWithRedux onSubmit={registry} />
+        {
+            !props.isLogin 
+            ? 
+                <>
+                    <div>Registry</div>
+                    <RegisterFormWithRedux onSubmit={registry} />
+                </>
+            :
+                <Redirect to="/notes" />
+        }
     </>
 }
 
