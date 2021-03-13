@@ -1,0 +1,50 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.almost_main{
+    margin: 20vh 0 0 0;
+}
+.title{
+    font-size: 35px;
+    text-align: center;
+}
+.title span{
+    color: rgb(94,211,243);
+    font-weight: 600;
+}
+.links{
+    text-align: center;
+    margin: 20px 0 0 0;
+    padding: 50px 30px 50px 30px;
+    border: 2px solid rgb(136,136,136);
+    border-radius: 8px;
+}
+.text{
+    font-size: 18px;
+    margin: 0 0 5px 0;
+}
+.login{
+    display: block;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    background-color: rgb(194,194,194);
+    border: 1px solid rgb(136,136,136);
+    border-radius: 8px;
+    margin: 0 0 40px 0;
+}
+.register{
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    background-color: rgb(194,194,194);
+    border: 1px solid rgb(136,136,136);
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+}

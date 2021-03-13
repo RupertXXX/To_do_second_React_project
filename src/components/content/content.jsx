@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from './menu/menu';
-import AddNote from './addNote/addNote';
+import AddNoteContainer from './addNote/addNoteContainer';
 import c from './content.module.css';
 
 const Content = (props) => {
@@ -9,7 +9,7 @@ const Content = (props) => {
             <Menu />
             {props.children}
         </div>
-        <AddNote />
+        <AddNoteContainer className={c.add_photo} />
     </>
 }
 

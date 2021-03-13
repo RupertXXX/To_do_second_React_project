@@ -69,8 +69,36 @@ export const userAPI = {
         return instance.delete(`user/me/avatar`);
     },
 }
-
-
+export const notesAPI = {
+    getNotes(token, limit=18, skip=0) {
+        return instance.get(`task?limit=${limit}&skip=${skip}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            return response;
+        });
+    },
+    setNote(token, description) {
+        return instance.post(`task`, {
+                description: description,
+            }, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
+        });
+    },
+    setComplete(token, id) {
+        return instance.put(`task/${id}`, {
+                completed: true,
+            }, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
+        });
+    }
+}
 
 
 

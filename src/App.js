@@ -2,7 +2,7 @@ import React from 'react';
 import c from './App.module.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import ContentContainer from './components/content/contentContainer';
-import Notes from './components/content/notes/notes';
+import NotesContainer from './components/content/notes/notesContainer';
 import Settings from './components/content/settings/settings';
 import AuthContainer from './components/auth/authContainer';
 import RegisterContainer from './components/auth/register/registerContainer';
@@ -16,7 +16,7 @@ function App() {
         <Route path="/auth" render={() => <AuthContainer />} />
         <Route path="/register" render={() => <RegisterContainer />} />
         <Route path="/login" render={() => <LoginContainer />} />
-        <Route path="/notes" render={() => <ContentContainer children={<Notes />} />} />
+        <Route path="/notes" render={() => <ContentContainer children={<NotesContainer />} />} />
         <Route path="/settings" render={() => <ContentContainer children={<Settings />} />} />
       </Switch>
     </div>

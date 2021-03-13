@@ -1,44 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import OneNote from './oneNote/oneNote';
+import Loading from '../../../common/loading/loading'
 import c from './notes.module.css';
 
 const Notes = (props) => {
+    useEffect(() => {
+        props.getNotes(0);
+    }, []);
+
+    const getNotes = () => {
+        let notes = props.notes.map((el) => 
+            <OneNote setComplete={props.setComplete} key={el._id} id={el._id} description={el.description} 
+                date={el.date} completed={el.completed} />
+        );
+        return notes;
+    }
+
     return <>
-        <div className={c.main}>
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
-            <OneNote text="lorem ipsum ffffffff ffefewfsf hy tjyrj x akfk n njnk buhn hgnk nim ij bb j h nuh unhgygtyfygrdrctfy hyg yhy frf frdr vtrdt bh gy u u jjijji jhu hjgtft grff t ft tf tdrse ggygguk jnjhftvrdr vhgy.lgesrf ht ghdr cv vgft ff tf ygy gj r v gy..." 
-                date="01-01-2000" urgency="high" />
+        <div className={c.main}>            
+            { 
+            props.notes.length > 0
+            ?
+                getNotes()
+            :
+                <Loading />
+            }
         </div>
     </>
 }
