@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import {Redirect} from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import c from './login.module.css';
 
 const LoginForm = (props) => {
@@ -38,6 +38,7 @@ const Login = (props) => {
                 <div className={c.almost_main}>
                     <div className={c.title}>Login</div>
                     <LoginFormWithRedux onSubmit={login} error={props.errors}/>
+                    <NavLink className={c.register} to="/register">Register</NavLink>
                 </div>
             :
                 <Redirect to="/notes" />

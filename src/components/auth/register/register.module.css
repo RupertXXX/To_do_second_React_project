@@ -1,0 +1,58 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.almost_main{
+    margin: 20vh 0 0 0;
+}
+.title{
+    font-size: 35px;
+    text-align: center;
+}
+.main_form{
+    text-align: center;
+    margin: 20px 0 0 0;
+    padding: 60px 40px 60px 40px;
+    border: 2px solid rgb(136,136,136);
+    border-radius: 8px;
+}
+.name{
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+.email{
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+.password{
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+.age{
+    font-size: 18px;
+    margin: 0 0 40px 0;
+}
+.register{
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    background-color: rgb(194,194,194);
+    border: 1px solid rgb(136,136,136);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.login{
+    display: block;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    width: 80%;
+    background-color: rgb(194,194,194);
+    border: 1px solid rgb(136,136,136);
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 20px 0 0 10%;
+}

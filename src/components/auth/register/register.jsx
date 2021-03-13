@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import {Redirect} from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import c from './register.module.css';
 
 const RegisterForm = (props) => {
@@ -12,11 +12,10 @@ const RegisterForm = (props) => {
             <Field className={c.email}  name={'email'} type={'email'} placeholder={'E-mail'} component={'input'} />
         </div>
         <div>
-            <Field className={c.password}  name={'password'} type={'password'} placeholder={'password'} component={'input'} />
+            <Field className={c.password}  name={'password'} type={'password'} placeholder={'Password'} component={'input'} />
         </div>
         <div>
-            Age: 
-            <Field className={c.age} name={'age'} type={'number'} component={'input'} />
+            <Field className={c.age} name={'age'} type={'text'} placeholder={'Age'} component={'input'} />
         </div>
         {
             (props.error) &&
@@ -25,7 +24,7 @@ const RegisterForm = (props) => {
             </div>
         }
         <div>
-            <button className={c.btn} name={'submit'} >Send</button>
+            <button className={c.register} name={'submit'} >Send</button>
         </div>
     </form>
 }
@@ -38,18 +37,19 @@ const Register = (props) => {
     const registry = (formData) => {
         props.registerUser(formData.name, formData.email, formData.password, formData.age);
     }
-    return <>
+    return <div className={c.main}>
         {
             !props.isLogin 
             ? 
-                <>
-                    <div>Registry</div>
+                <div className={c.almost_main}>
+                    <div className={c.title}>Registry</div>
                     <RegisterFormWithRedux onSubmit={registry} />
-                </>
+                    <NavLink className={c.login} to="/login">Login</NavLink>
+                </div>
             :
                 <Redirect to="/notes" />
         }
-    </>
+    </div>
 }
 
 export default Register;
