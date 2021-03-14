@@ -33,6 +33,7 @@
     font-size: 20px;
     width: 100%;
     background-color: rgb(194,194,194);
+    outline: none;
     border: 1px solid rgb(136,136,136);
     border-radius: 8px;
     margin: 0 0 40px 0;
@@ -43,6 +44,7 @@
     font-size: 20px;
     width: 100%;
     background-color: rgb(194,194,194);
+    outline: none;
     border: 1px solid rgb(136,136,136);
     border-radius: 8px;
     text-decoration: none;

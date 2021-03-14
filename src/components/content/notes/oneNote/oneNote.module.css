@@ -12,20 +12,27 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.top{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .description{
     font-size: 18px;
 }
 .set_completed{
+    text-align: center;
+    outline: none;
     border: 1px solid rgb(136,136,136);
     border-radius: 8px;
-    width: 80px;
+    width: 90px;
     height: 30px;
-    font-weight: 600;
-    font-size: 16px;
-    background-color: rgb(94,211,243);
+    font-size: 14px;
+    background-color: rgba(116, 116, 116, 0.4);
     border-radius: 5px;
     cursor: pointer;
-    margin: 0 0 0 12px;
+    margin: 0 0 0 71%;
 }
 .info{
     display: flex;

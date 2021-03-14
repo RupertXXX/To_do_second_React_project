@@ -97,8 +97,8 @@ export const loginThunkCreator = (email, password) => {
     return (dispatch) => {
         authAPI.loginUser(email, password)
             .then(response => {
+                dispatch(setUserTokenCreateAction(response.data.token));
                 dispatch(loginIsCreateAction());
-                dispatch(setUserTokenCreateAction(response.data.token))
             }).catch(error => {
                 dispatch(setUserMessagesCreateAction("login", error));
         });

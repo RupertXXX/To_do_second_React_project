@@ -13,7 +13,7 @@ const Auth = (props) => {
                     <div className={c.links}>
                         <div className={c.text}> Login to continue </div>
                         <NavLink className={c.login} to="/login">Login</NavLink>
-                        <div className={c.text}> If you don't have an account you can register </div>
+                        <div className={c.text}> If you don't have an account you need to register </div>
                         <NavLink className={c.register} to="/register">Register</NavLink>
                     </div>
                 </div>

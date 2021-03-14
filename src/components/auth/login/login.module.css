@@ -20,10 +20,12 @@
 .email{
     font-size: 18px;
     margin: 0 0 10px 0;
+    outline: none;
 }
 .password{
     font-size: 18px;
     margin: 0 0 40px 0;
+    outline: none;
 }
 .login{
     color: black;
@@ -31,6 +33,7 @@
     font-size: 20px;
     width: 100%;
     background-color: rgb(194,194,194);
+    outline: none;
     border: 1px solid rgb(136,136,136);
     border-radius: 4px;
     cursor: pointer;
@@ -43,6 +46,7 @@
     font-size: 20px;
     width: 80%;
     background-color: rgb(194,194,194);
+    outline: none;
     border: 1px solid rgb(136,136,136);
     border-radius: 4px;
     cursor: pointer;

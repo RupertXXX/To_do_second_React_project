@@ -43,7 +43,6 @@ const Login = (props) => {
             :
                 <Redirect to="/notes" />
         }
-        {/* <button onClick={() => props.logoutUser()}>logout</button> */}
     </div>
 }
 

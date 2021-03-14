@@ -80,6 +80,16 @@ export const notesAPI = {
             return response;
         });
     },
+    getCompletedNotes(token, limit=18, skip=0, completed) {
+        return instance.get(`task?limit=${limit}&skip=${skip}&completed=${completed}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            return response;
+        });
+    },
     setNote(token, description) {
         return instance.post(`task`, {
                 description: description,
@@ -89,9 +99,9 @@ export const notesAPI = {
             }
         });
     },
-    setComplete(token, id) {
+    setComplete(token, id, isComplete) {
         return instance.put(`task/${id}`, {
-                completed: true,
+                completed: isComplete,
             }, {
             headers: {
                 'Authorization': `Bearer ${token}`,

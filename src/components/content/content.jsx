@@ -1,12 +1,12 @@
 import React from 'react';
-import Menu from './menu/menu';
+import MenuContainer from './menu/menuContainer';
 import AddNoteContainer from './addNote/addNoteContainer';
 import c from './content.module.css';
 
 const Content = (props) => {
     return <>
         <div className={c.main}>
-            <Menu />
+            <MenuContainer />
             {props.children}
         </div>
         <AddNoteContainer className={c.add_photo} />
