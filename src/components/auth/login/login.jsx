@@ -1,22 +1,29 @@
 import React from 'react';
+import { InputText } from '../../../common/formControls/formControls';
 import { Field, reduxForm } from 'redux-form';
+import { maxLengthCreator, required } from '../../../common/utils/validators/validators';
 import { Redirect, NavLink } from 'react-router-dom';
 import c from './login.module.css';
 
+const maxLength30 = maxLengthCreator(30);
+const maxLength50 = maxLengthCreator(50);
+
 const LoginForm = (props) => {
     return <form className={c.main_form} onSubmit={props.handleSubmit}>
-        <div>
-            <Field className={c.email} name={'email'} type={'email'} placeholder={'E-mail'} component={'input'} />
-        </div>
-        <div>
-            <Field className={c.password} name={'password'} type={'password'} placeholder={'password'} component={'input'} />
-        </div>
-        {
-            (props.error) &&
-            <div className={c.mass_error}>
-                {props.error}
+        <div className={c.top_form}>
+            <div>
+                <Field className={c.email} validate={[required, maxLength50]} name={'email'} type={'email'} placeholder={'E-mail'} component={InputText} />
             </div>
-        }
+            <div>
+                <Field className={c.password} validate={[required, maxLength30]} name={'password'} type={'password'} placeholder={'password'} component={InputText} />
+            </div>
+            {
+                (props.error) &&
+                <div className={c.mass_error}>
+                    {props.error}
+                </div>
+            }
+            </div>
         <div>
             <button className={c.login} name={'submit'}> Send </button>
         </div>

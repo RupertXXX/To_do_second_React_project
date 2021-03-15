@@ -17,6 +17,9 @@
     border: 2px solid rgb(136,136,136);
     border-radius: 8px;
 }
+.top_form{
+    margin: 0 0 30px 0;
+}
 .name{
     font-size: 18px;
     margin: 0 0 10px 0;
@@ -24,17 +27,17 @@
 }
 .email{
     font-size: 18px;
-    margin: 0 0 10px 0;
+    margin: 10px 0 10px 0;
     outline: none;
 }
 .password{
     font-size: 18px;
-    margin: 0 0 10px 0;
+    margin: 10px 0 10px 0;
     outline: none;
 }
 .age{
     font-size: 18px;
-    margin: 0 0 40px 0;
+    margin: 10px 0 10px 0;
     outline: none;
 }
 .register{

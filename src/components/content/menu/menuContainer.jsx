@@ -1,19 +1,24 @@
 import { connect } from 'react-redux';
-import { logoutThunkCreator } from '../../../redux/reducers/userReducer';
+import { getUserThunkCreator } from '../../../redux/reducers/userReducer';
+import { getImageThunkCreator } from '../../../redux/reducers/userReducer';
 import { compose } from 'redux';
 import withErrorBoundary from '../../HOCs/withErrorBoundary';
 import Menu from './menu';
 
 let mapStateToProps = (state) => {
     return ({
-        isLogin: state.user.isLogin,
+        userData: state.user.userData,
+        photo: state.user.photo,
     })
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        logoutUser: () => {
-            dispatch(logoutThunkCreator());
+        getUser: () => {
+            dispatch(getUserThunkCreator());
+        },
+        getImage: () => {
+            dispatch(getImageThunkCreator());
         },
     }
 }

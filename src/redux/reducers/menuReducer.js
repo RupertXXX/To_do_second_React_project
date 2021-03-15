@@ -5,7 +5,6 @@ const ADD_PHOTO = 'ADD_PHOTO';
 
 let initialState = {
     newPhoto: "",
-
 };
 
 const settingsReducer = (state = initialState, action) => {

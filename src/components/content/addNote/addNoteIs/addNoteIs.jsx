@@ -1,11 +1,15 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Textarea } from '../../../../common/formControls/formControls';
+import { Field, reduxForm, reset } from 'redux-form';
+import { maxLengthCreator } from '../../../../common/utils/validators/validators';
 import c from './addNoteIs.module.css'
+
+const maxLength1000 = maxLengthCreator(1000);
 
 const AddNoteIsForm = (props) => {
     return <form className={c.main_form} onSubmit={props.handleSubmit}>
         <div>
-            <Field className={c.description}  name={'description'} placeholder={'Your description'} component={'textarea'} />
+            <Field className={c.description} validate={[maxLength1000]} name={'description'} placeholder={'Your description'} component={Textarea} />
         </div>
         {
             (props.error) &&
@@ -23,8 +27,9 @@ const AddNoteIsFormWithredux = reduxForm({
 
 const AddNoteIs = (props) => {
 
-    const setNote = (formData) => {
-        props.setNote(formData.description)
+    const setNote = (formData, dispatch) => {
+        props.setNote(formData.description);
+        dispatch(reset('addNote'));
     };
 
     return <div className={c.main}>

@@ -1,8 +1,28 @@
+.main{
+    margin: 10px 0 0 20px;
+}
+.profile_title{
+    font-size: 22px;
+    font-weight: 600;
+}
 .logout{
     outline: none;
     width: 120px;
     height: 5%;
-    margin: 0 0 0 15px;
+    margin: 20px 0 0 0;
+    cursor: pointer;
+    background-color: rgb(228, 62, 68);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+}
+.deleteUser{
+    display: block;
+    outline: none;
+    height: 5%;
+    margin: 20px 0 0 0;
+    padding: 0 15px;
     cursor: pointer;
     background-color: rgb(227,30,37);
     border: none;
