@@ -38,40 +38,66 @@ export const userAPI = {
             return response;
         });
     },
-    updateUser(name, email, password, age) {
+    updateUser(token, name, email, password, age) {
         return instance.put(`user/me`, {
             name: name,
             email: email,
             password: password,
             age: age
+        }, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
         });
     },
-    setImage(image) {
+    setImage(token, image) {
         let formData = new FormData();
-        formData.append("image", image);
+        formData.append("avatar", image);
 
         return instance.post(`user/me/avatar`, formData, {
             headers: {
-                'Content-Type': 'multipart/form-data'
-            }}
-        );
+                'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${token}`,
+            }
+        });
     },
-    getImage() {
-        return instance.get(`user/5ddccbec6b55da001759722c/avatar`)
-        .then(response => {
+    getImage(token) {
+        return instance.get(`user/${token}/avatar`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
+        }).then(response => {
             return response;
         });
     },
-    deleteImage() {
-        return instance.delete(`user/me/avatar`);
+    deleteImage(token) {
+        return instance.delete(`user/me/avatar`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
+        });
     },
-    deleteUser() {
-        return instance.delete(`user/me/avatar`);
+    deleteUser(token) {
+        return instance.delete(`user/me`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
+        });
     },
 }
 export const notesAPI = {
     getNotes(token, limit=18, skip=0) {
         return instance.get(`task?limit=${limit}&skip=${skip}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            return response;
+        });
+    },
+    getNotesCount(token) {
+        return instance.get(`task`, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -114,26 +140,5 @@ export const notesAPI = {
                 'Authorization': `Bearer ${token}`,
             }
         });
-    },
-}
-
-
-
-export const settingsAPI = {
-    setPhoto(photo) {
-        let formData = new FormData();
-        formData.append("image", photo);
-
-        return instance.put(`profile/photo`, formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }}
-        )
-        .then(response => {
-            return response.data;
-        });
-    },
-    setProfileInfo(allData) {
-        return instance.put(`profile`, allData).then(response => response.data)
     },
 }

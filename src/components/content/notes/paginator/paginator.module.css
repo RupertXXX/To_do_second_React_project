@@ -3,14 +3,18 @@
     align-items: center;
 }
 .noselected{
-    padding: 0 3px 0 3px;
+    padding: 1px 6px 1px 6px;
     border-radius: 5px;
+    margin: 5px 20px;
+    cursor: pointer;
 }
 .noselected:hover{
     background-color: rgba(116, 116, 116, 0.5);
 }
 .selected{
     font-weight: 900;
+    margin: 5px 20px;
+    cursor: pointer;
 }
 .btn{
     text-align: center;

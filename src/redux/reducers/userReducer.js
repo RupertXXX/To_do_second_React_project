@@ -12,13 +12,14 @@ const LOGIN_IS_NOT = 'LOGIN_IS_NOT';
 let initialState = {
     isLogin: false,
     messages: [],
+    token: null,
+    registerToken: null,
     userData: {
         name: null,
         email: null,
-        age: null
+        age: null,
     },
-    token: null,
-    registerToken: null,
+    photo: null,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -51,6 +52,11 @@ const userReducer = (state = initialState, action) => {
                     age: action.age
                 }
             }
+        case SET_USER_DATA:
+            return {
+                ...state,
+                photo: action.photo,
+            }
         case SET_USER_TOKEN: 
             return {
                 ...state,
@@ -79,6 +85,7 @@ const loginIsNotCreateAction = () => ({type: 'LOGIN_IS_NOT'});
 const setUserMessagesCreateAction = (spot, messages) => ({ type: 'SET_USER_MESSAGES', spot, messages });
 const clearUserDataCreateAction = () => ({type: 'CLEAR_USER_DATA'});
 const setUserDataCreateAction = (data) => ({ type: 'SET_USER_DATA', name: data.name, email: data.email, age: data.age });
+const setImageCreateAction = (photo) => ({type: 'SET_IMAGE', photo})
 const setUserTokenCreateAction = (token) => ({type: 'SET_USER_TOKEN', token});
 const setUserRegisterTokenCreateAction = (registerToken) => ({type: 'SET_USER_REGISTER_TOKEN', registerToken});
 
@@ -105,24 +112,62 @@ export const loginThunkCreator = (email, password) => {
     };
 };
 export const logoutThunkCreator = () => {
-        return (dispatch, getState) => {
-            authAPI.logoutUser(getState().user.token)
-            .then(response => {
-                dispatch(clearUserDataCreateAction());
-            }).catch(error => {
-                dispatch(setUserMessagesCreateAction("logout", error));
+    return (dispatch, getState) => {
+        authAPI.logoutUser(getState().user.token)
+        .then(response => {
+            dispatch(clearUserDataCreateAction());
+        }).catch(error => {
+            dispatch(setUserMessagesCreateAction("logout", error));
         });
     };
 };
 export const getUserThunkCreator = () => {
-    return (dispatch) => {
-        userAPI.getUser().then(response => {
+    return (dispatch, getState) => {
+        userAPI.getUser(getState().user.token).then(response => {
             dispatch(setUserDataCreateAction(response.data));
         })
     }
-}
-
-
+};
+export const getImageThunkCreator = () => {
+    return (dispatch, getState) => {
+        userAPI.getImage(getState().user.token)
+        .then(response => {
+            dispatch(setImageCreateAction(response.data));
+        }).catch(error => {
+            dispatch(setUserMessagesCreateAction("getImage", error));
+        });
+    };
+};
+export const setImageThunkCreator = (image) => {
+    return (dispatch, getState) => {
+        userAPI.setImage(getState().user.token, image)
+        .then(response => {
+            dispatch(getImageThunkCreator());
+        }).catch(error => {
+            dispatch(setUserMessagesCreateAction("setImage", error));
+        });
+    };
+};
+export const updateUserThunkCreator = (name, email, password, age) => {
+    return (dispatch, getState) => {
+        userAPI.updateUser(getState().user.token, name, email, password, age)
+        .then(response => {
+            dispatch(getUserThunkCreator());
+        }).catch(error => {
+            dispatch(setUserMessagesCreateAction("updateUser", error));
+        });
+    };
+};
+export const deleteUserThunkCreator = () => {
+    return (dispatch, getState) => {
+        userAPI.deleteUser(getState().user.token)
+        .then(response => {
+            dispatch(clearUserDataCreateAction());
+        }).catch(error => {
+            dispatch(setUserMessagesCreateAction("deleteUser", error));
+        });
+    };
+};
 
 
 

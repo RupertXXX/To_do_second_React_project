@@ -41,9 +41,9 @@ const OneNote = (props) => {
                     {
                         isComplete
                         ?
-                            <button className={c.set_incompleted} onClick={setIncomplete}>Incompleted</button>
+                            <button className={c.set_incompleted} onClick={setIncomplete}>Incomplete</button>
                         :
-                            <button className={c.set_completed} onClick={setComplete}>Completed</button>
+                            <button className={c.set_completed} onClick={setComplete}>Complete</button>
                     }
                 </div>
                 <div className={c.info}>

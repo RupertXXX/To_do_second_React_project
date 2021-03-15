@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import c from './counter.module.css';
+import c from './paginator.module.css';
 
 const Paginator = (props) => {
 
-    let pageCount = Math.ceil(props.totalFriendsCount / props.pageSize);
+    let pageCount = Math.ceil(props.count / props.pageSize);
     let counter = [];
     for(let i = 0; i < pageCount; i++)
     {
@@ -24,8 +24,8 @@ const Paginator = (props) => {
         {counter
             .filter(p => p >= leftPortionNumber && p <= rightPortionNumber)
             .map(obj => 
-                <div key={obj} className={props.currentPage === obj ? c.selected : c.noselected} 
-                onClick={() => {props.newRequestOnClick(obj)} } >
+                <div key={obj} className={props.currentPage === obj - 1 ? c.selected : c.noselected} 
+                onClick={() => {props.setCurrentPage(obj - 1)} } >
                     {obj}
                 </div>
             )

@@ -4,14 +4,26 @@
     overflow-y: scroll;
     height: 100vh;
 }
-.main::-webkit-scrollbar {
+.main::-webkit-scrollbar{
     width: 8px;
     border-radius: 50px;
     background-color: rgba(116, 116, 116, 0.4);
 }
-.main::-webkit-scrollbar-thumb {
+.main::-webkit-scrollbar-thumb{
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 50px;
+}
+.premain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 76.15vw;
+}
+.line{
+    width: 90%;
+    margin: 5px 0 5px 0;
+    background-color: rgb(169, 169, 169);
+    height: 2px;
 }
 .notes{
     padding-bottom: 20px;
