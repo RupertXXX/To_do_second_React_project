@@ -7,7 +7,7 @@ const Notes = (props) => {
 
     const getNotes = () => {
         let notes = props.notes.map((el) => 
-            <OneNote setComplete={props.setComplete} key={el._id} id={el._id} 
+            <OneNote setComplete={props.setComplete} deleteNote={props.deleteNote} key={el._id} id={el._id} 
                 description={el.description} date={el.date} completed={el.completed} />
         );
         return notes;
@@ -18,7 +18,9 @@ const Notes = (props) => {
             { 
                 props.notes[0] !== 'test'
                 ?
-                    getNotes()
+                    <div className={c.notes}> 
+                        {getNotes()}
+                    </div>
                 :
                     <Loading />
             }

@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getNotesThunkCreator, 
+         deleteNoteThunkCreator, 
          setCompleteThunkCreator, 
          getCompletedNotesThunkCreator, 
-         setLocationCreateAction } from '../../../redux/reducers/notesReducer';
+         setLocationCreateAction, } from '../../../redux/reducers/notesReducer';
 import { compose } from 'redux';
 import withErrorBoundary from '../../HOCs/withErrorBoundary';
 import Notes from './notes';
@@ -58,6 +59,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         getCompletedNotes: (skip, completed) => {
             dispatch(getCompletedNotesThunkCreator(skip, completed));
+        },
+        deleteNote: (id) => {
+            dispatch(deleteNoteThunkCreator(id));
         },
         setComplete: (id, isComplete) => {
             dispatch(setCompleteThunkCreator(id, isComplete));

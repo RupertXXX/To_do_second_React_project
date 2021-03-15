@@ -99,6 +99,13 @@ export const notesAPI = {
             }
         });
     },
+    deleteNote(token, id) {
+        return instance.delete(`task/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
+        });
+    },
     setComplete(token, id, isComplete) {
         return instance.put(`task/${id}`, {
                 completed: isComplete,
@@ -107,7 +114,7 @@ export const notesAPI = {
                 'Authorization': `Bearer ${token}`,
             }
         });
-    }
+    },
 }
 
 

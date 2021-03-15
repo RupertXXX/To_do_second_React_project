@@ -78,6 +78,19 @@ export const setNoteThunkCreator = (description) => {
         });
     };
 };
+export const deleteNoteThunkCreator = (id) => {
+    return (dispatch, getState) => {
+        let location = getState().notes.location;
+        return notesAPI.deleteNote(getState().user.token, id)
+            .then(response => {
+                if(location === "notes") dispatch(getNotesThunkCreator(0));
+                else if(location === "incompleted") dispatch(getCompletedNotesThunkCreator(0, false));
+                else if(location === "completed") dispatch(getCompletedNotesThunkCreator(0, true));
+            }).catch(error => {
+                dispatch(setUserMessagesCreateAction("complete", error));
+        });
+    };
+};
 export const setCompleteThunkCreator = (id, isComplete) => {
     return (dispatch, getState) => {
         let location = getState().notes.location;

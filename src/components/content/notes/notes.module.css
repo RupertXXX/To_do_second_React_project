@@ -1,7 +1,6 @@
 .main{
-    display: flex;
-    margin: 10px 10px;
-    flex-wrap: wrap;
+    margin: 0 10px 0 0;
+    padding: 10px 10px;
     overflow-y: scroll;
     height: 100vh;
 }
@@ -13,4 +12,9 @@
 .main::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 50px;
+}
+.notes{
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }

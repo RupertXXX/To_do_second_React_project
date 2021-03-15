@@ -3,7 +3,7 @@ import c from './App.module.css';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import ContentContainer from './components/content/contentContainer';
 import NotesContainer from './components/content/notes/notesContainer';
-import Settings from './components/content/settings/settings';
+import SettingsContainer from './components/content/settings/settingsContainer';
 import AuthContainer from './components/auth/authContainer';
 import RegisterContainer from './components/auth/register/registerContainer';
 import LoginContainer from './components/auth/login/loginContainer';
@@ -20,7 +20,7 @@ function App() {
         <Route path="/notes" render={() => <ContentContainer children={<NotesContainer />} />} />
         <Route path="/incompleted" render={() => <ContentContainer children={<NotesContainer />} />} />
         <Route path="/completed" render={() => <ContentContainer children={<NotesContainer />} />} />
-        <Route path="/settings" render={() => <ContentContainer children={<Settings />} />} />
+        <Route path="/settings" render={() => <ContentContainer children={<SettingsContainer />} />} />
         <Route path="*" render={() => <NotFound />} />
       </Switch>
     </div>

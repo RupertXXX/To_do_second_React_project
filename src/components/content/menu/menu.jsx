@@ -11,7 +11,6 @@ const Menu = (props) => {
             <NavLink className={c.link} to="/incompleted">Incompleted notes</NavLink>
             <NavLink className={c.link} to="/completed">Completed notes</NavLink>
             <NavLink className={c.settings_link} to="/settings">Settings</NavLink>
-            <button className={c.logout} onClick={() => props.logoutUser()}>Logout</button>   
         </div>
     </>
 }
