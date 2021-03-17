@@ -5,21 +5,23 @@ import { maxLengthCreator, required } from '../../../common/utils/validators/val
 import c from './settings.module.css';
 
 const maxLength50 = maxLengthCreator(50);
+const maxLength10 = maxLengthCreator(10);
+const maxLength30 = maxLengthCreator(30);
 
 const SettingsForm = (props) => {
     return <form className={c.main_form} onSubmit={props.handleSubmit}>
         <div className={c.top_form}>
             <div>
-                <Field className={c.name} validate={[required, maxLength50]} name={'name'} type={'text'} placeholder={'Name'} component={InputText} />
+                <Field autocomplete="off" className={c.name} validate={[maxLength50]} name={'name'} type={'text'} placeholder={'Name'} component={InputText} />
             </div>
             <div>
-                <Field className={c.email} validate={[required, maxLength50]} name={'email'} type={'text'} placeholder={'Email'} component={InputText} />
+                <Field value="" autocomplete="off" className={c.email} validate={[maxLength50]} name={'email'} type={'text'} placeholder={'Email'} component={InputText} />
             </div>
             <div>
-                <Field className={c.password} validate={[required, maxLength50]} name={'password'} type={'password'} placeholder={'Password'} component={InputText} />
+                <Field value="" autocomplete="off" className={c.password} validate={[maxLength30]} name={'password'} type={'password'} placeholder={'Password'} component={InputText} />
             </div>
             <div>
-                <Field className={c.age} validate={[required, maxLength50]} name={'age'} type={'text'} placeholder={'Age'} component={InputText} />
+                <Field autocomplete="off" className={c.age} validate={[maxLength10]} name={'age'} type={'text'} placeholder={'Age'} component={InputText} />
             </div>
             {
                 (props.error) &&
@@ -27,9 +29,9 @@ const SettingsForm = (props) => {
                     {props.error}
                 </div>
             }
-            </div>
+        </div>
         <div>
-            <button className={c.login} name={'submit'}> Send </button>
+            <button className={c.update} name={'submit'}> Send </button>
         </div>
     </form>
 }
@@ -56,40 +58,46 @@ const Settings = (props) => {
 
     return <>
         <div className={c.main}>
-            <div>
-                <div className={c.profile_title}>Profile</div>
-                <div> Name: {props.userData.name} </div>
-                <div> Age: {props.userData.age} </div>
-                <div> Email: {props.userData.email} </div>
+            <div className={c.title}>Profile</div>
+            <div className={c.profile}>
+                <div className={c.profile_text}> Name: {props.userData.name} </div>
+                <div className={c.profile_text}> Age: {props.userData.age} </div>
+                <div className={c.profile_text}> Email: {props.userData.email} </div>
             </div>
-            <div>
-                <div className={c.profile_title}>Change profile</div>
+            <div className={c.title}>Change profile</div>
+            <div className={c.change_profile}>
                 <SettingsFormWithRedux onSubmit={updateUser} />
             </div>
             {/* <div>
-                <div className={c.profile_title}>Download photo</div>
+                <div className={c.title}>Download photo</div>
                 <input onChange={imageChose} type="file" />
             </div> */}
-            <button className={c.logout} onClick={() => props.logoutUser()}>Logout</button>
-            {
-                isDeleteMode
-                ?
-                    <div>
+            <div className={c.title}>Logout</div>
+            <div className={c.logout}>
+                <button className={c.logout_is} onClick={() => props.logoutUser()}>Logout</button>
+            </div>
+            <div className={c.title}>Delete account</div>
+            <div className={c.delete}>
+                <div className={c.delete_text}>If you delete your account you will not be able to restore it!<br/></div>
+                {
+                    isDeleteMode
+                    ?
                         <div>
-                            If you delete your account you will not be able to restore it!<br/>
-                            If you really want to delete it enter your name to confirm:<br/>
-                            <input onChange={(e) => setDeleteCheck(e.target.value)} type="text" placeholder="Your name" />
+                            <div className={c.delete_enter}>
+                                If you really want to delete it enter your name to confirm:<br/>
+                                <input className={c.delete_enter} onChange={(e) => setDeleteCheck(e.target.value)} type="text" placeholder="Your name" />
+                            </div>
+                            <div>
+                                <button className={c.delete_confirm} onClick={deleteUser}>Confirm</button>
+                                <button className={c.delete_cancel} onClick={() => setIsDeleteMode(val => !val)}>Cancel</button>
+                            </div>
                         </div>
-                        <div>
-                            <button onClick={deleteUser}>Confirm</button>
-                            <button onClick={() => setIsDeleteMode(val => !val)}>Cancel</button>
-                        </div>
-                    </div>
-                :
-                    <button className={c.deleteUser} onClick={() => setIsDeleteMode(val => !val)} >
-                        Delete account
-                    </button>
-            }
+                    :
+                        <button className={c.deleteUser} onClick={() => setIsDeleteMode(val => !val)} >
+                            Delete account
+                        </button>
+                }
+            </div>
         </div>
     </>
 }

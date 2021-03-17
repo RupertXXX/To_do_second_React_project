@@ -116,13 +116,14 @@ export const getCompletedNotesThunkCreator = (skip, completed) => {
 };
 export const setNoteThunkCreator = (description) => {
     return (dispatch, getState) => {
+        dispatch(setIsLoadingCreateAction());
         let location = getState().notes.location;
         return notesAPI.setNote(getState().user.token, description)
             .then(response => {
                 dispatch(getNotesCountThunkCreator());
-                if(location === "notes") dispatch(getNotesThunkCreator(0));
-                else if(location === "incompleted") dispatch(getCompletedNotesThunkCreator(0, false));
-                else if(location === "completed") dispatch(getCompletedNotesThunkCreator(0, true));
+                if(location === "notes") dispatch(getNotesThunkCreator(getState().notes.currentPage));
+                else if(location === "incompleted") dispatch(getCompletedNotesThunkCreator(getState().notes.currentPage, false));
+                else if(location === "completed") dispatch(getCompletedNotesThunkCreator(getState().notes.currentPage, true));
             }).catch(error => {
                 dispatch(setUserMessagesCreateAction("add", error));
         });
@@ -130,12 +131,13 @@ export const setNoteThunkCreator = (description) => {
 };
 export const deleteNoteThunkCreator = (id) => {
     return (dispatch, getState) => {
+        dispatch(setIsLoadingCreateAction());
         let location = getState().notes.location;
         return notesAPI.deleteNote(getState().user.token, id)
             .then(response => {
-                if(location === "notes") dispatch(getNotesThunkCreator(0));
-                else if(location === "incompleted") dispatch(getCompletedNotesThunkCreator(0, false));
-                else if(location === "completed") dispatch(getCompletedNotesThunkCreator(0, true));
+                if(location === "notes") dispatch(getNotesThunkCreator(getState().notes.currentPage));
+                else if(location === "incompleted") dispatch(getCompletedNotesThunkCreator(getState().notes.currentPage, false));
+                else if(location === "completed") dispatch(getCompletedNotesThunkCreator(getState().notes.currentPage, true));
             }).catch(error => {
                 dispatch(setUserMessagesCreateAction("complete", error));
         });
@@ -146,9 +148,9 @@ export const setCompleteThunkCreator = (id, isComplete) => {
         let location = getState().notes.location;
         return notesAPI.setComplete(getState().user.token, id, isComplete)
             .then(response => {
-                if(location === "notes") dispatch(getNotesThunkCreator(0));
-                else if(location === "incompleted") dispatch(getCompletedNotesThunkCreator(0, false));
-                else if(location === "completed") dispatch(getCompletedNotesThunkCreator(0, true));
+                if(location === "notes") dispatch(getNotesThunkCreator(getState().notes.currentPage));
+                else if(location === "incompleted") dispatch(getCompletedNotesThunkCreator(getState().notes.currentPage, false));
+                else if(location === "completed") dispatch(getCompletedNotesThunkCreator(getState().notes.currentPage, true));
             }).catch(error => {
                 dispatch(setUserMessagesCreateAction("complete", error));
         });

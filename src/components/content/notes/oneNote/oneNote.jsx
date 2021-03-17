@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import c from './oneNote.module.css';
 import yes from '../../../../assets/images/yes.png';
 import no from '../../../../assets/images/no.svg';
@@ -8,12 +8,19 @@ const OneNote = (props) => {
 
     const [isComplete, setIsComplete] = useState(props.completed);
     const [isDeleteMode, setIsDeleteMode] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
+
+    useEffect(() => {
+        setIsDisabled(false)
+    }, [props.completed])
 
     const setComplete = () => {
+        setIsDisabled(true);
         props.setComplete(props.id, true);
         setIsComplete((val) => !val);
     }
     const setIncomplete = () => {
+        setIsDisabled(true);
         props.setComplete(props.id, false);
         setIsComplete((val) => !val);
     }
@@ -22,6 +29,7 @@ const OneNote = (props) => {
     }
 
     return <>
+        
         <div className={c.main}>
             <div className={c.description}>{props.description}</div>
             <div className={c.bottom}>
@@ -41,9 +49,9 @@ const OneNote = (props) => {
                     {
                         isComplete
                         ?
-                            <button className={c.set_incompleted} onClick={setIncomplete}>Incomplete</button>
+                            <button disabled={isDisabled ? true : false} className={c.set_incompleted} onClick={setIncomplete}>Incomplete</button>
                         :
-                            <button className={c.set_completed} onClick={setComplete}>Complete</button>
+                            <button disabled={isDisabled ? true : false} className={c.set_completed} onClick={setComplete}>Complete</button>
                     }
                 </div>
                 <div className={c.info}>

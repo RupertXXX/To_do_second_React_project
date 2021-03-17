@@ -1,15 +1,49 @@
 .main{
-    margin: 10px 0 0 20px;
+    margin: 5px 0 0 20px;
 }
-.profile_title{
-    font-size: 22px;
+.title{
+    font-size: 24px;
     font-weight: 600;
+    color: rgb(32, 32, 32);
+}
+.profile{
+    margin: 5px 0 10px 15px;
+}
+.profile_text{
+    font-size: 17px;
+}
+.change_profile{
+    margin: 0 0 0 15px;
+}
+.top_form{
+    width: 15vw;
+}
+.name, .email, .password, .age{
+    font-size: 16px;
+    margin: 10px 0 5px 0;
+    outline: none;
+}
+.update{
+    outline: none;
+    border: 1px solid rgb(136,136,136);
+    width: 120px;
+    height: 33px;
+    color: black;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: rgb(94,211,243);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0 0 0; 
 }
 .logout{
+    margin: 5px 0 15px 15px;
+}
+.logout_is{
     outline: none;
     width: 120px;
-    height: 5%;
-    margin: 20px 0 0 0;
+    height: 33px;
+    margin: 10px 0 0 0;
     cursor: pointer;
     background-color: rgb(228, 62, 68);
     border: none;
@@ -17,11 +51,14 @@
     color: white;
     font-size: 18px;
 }
+.delete{
+    margin: 5px 0 15px 15px;
+}
 .deleteUser{
     display: block;
     outline: none;
-    height: 5%;
-    margin: 20px 0 0 0;
+    height: 33px;
+    margin: 10px 0 0 0;
     padding: 0 15px;
     cursor: pointer;
     background-color: rgb(227,30,37);
@@ -29,4 +66,42 @@
     border-radius: 5px;
     color: white;
     font-size: 18px;
+}
+.delete_text{
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(32, 32, 32);
+}
+.delete_enter{
+    font-size: 18px;
+    margin: 10px 0 5px 0;
+    color: rgb(32, 32, 32);
+    outline: none;
+}
+.delete_confirm{
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    width: 90px;
+    height: 30px;
+    font-size: 14px;
+    background-color: rgb(227,30,37);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px 0 0;
+}
+.delete_cancel{
+    text-align: center;
+    outline: none;
+    border: 1px solid rgb(136,136,136);
+    border-radius: 8px;
+    width: 90px;
+    height: 30px;
+    font-size: 14px;
+    background-color: rgba(116, 116, 116, 0.4);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px 0 0;
 }
