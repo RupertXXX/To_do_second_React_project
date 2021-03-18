@@ -3,6 +3,7 @@ import {stopSubmit} from 'redux-form';
 
 const SET_USER_MESSAGES = 'SET_USER_MESSAGES';
 const SET_USER_DATA = 'SET_USER_DATA';
+const SET_IMAGE = 'SET_IMAGE';
 const SET_USER_TOKEN = 'SET_USER_TOKEN';
 const SET_USER_REGISTER_TOKEN = 'SET_USER_REGISTER_TOKEN';
 const CLEAR_USER_DATA = 'CLEAR_USER_DATA';
@@ -52,7 +53,7 @@ const userReducer = (state = initialState, action) => {
                     age: action.age
                 }
             }
-        case SET_USER_DATA:
+        case SET_IMAGE:
             return {
                 ...state,
                 photo: action.photo,
@@ -81,7 +82,7 @@ const userReducer = (state = initialState, action) => {
 }
 
 const loginIsCreateAction = () => ({type: 'LOGIN_IS'});
-const loginIsNotCreateAction = () => ({type: 'LOGIN_IS_NOT'});
+// const loginIsNotCreateAction = () => ({type: 'LOGIN_IS_NOT'});
 const setUserMessagesCreateAction = (spot, messages) => ({ type: 'SET_USER_MESSAGES', spot, messages });
 const clearUserDataCreateAction = () => ({type: 'CLEAR_USER_DATA'});
 const setUserDataCreateAction = (data) => ({ type: 'SET_USER_DATA', name: data.name, email: data.email, age: data.age });
@@ -97,6 +98,9 @@ export const registerThunkCreator = (name, email, password, age) => {
                 dispatch(setUserRegisterTokenCreateAction(response.data.token));
             }).catch(error => {
                 dispatch(setUserMessagesCreateAction("register", error));
+                let error_is = error.response.statusText;
+                let action = stopSubmit("register", {_error: error_is});
+                dispatch(action);
         });
     };
 };
@@ -108,6 +112,9 @@ export const loginThunkCreator = (email, password) => {
                 dispatch(loginIsCreateAction());
             }).catch(error => {
                 dispatch(setUserMessagesCreateAction("login", error));
+                let error_is = error.response.statusText;
+                let action = stopSubmit("login", {_error: error_is});
+                dispatch(action);
         });
     };
 };
@@ -168,37 +175,5 @@ export const deleteUserThunkCreator = () => {
         });
     };
 };
-
-
-
-
-
-
-
-
-
-
-
-// export const authLoginThunkCreator = (email, password, rememberMe, captcha) => {
-//     return (dispatch) => {
-//         authAPI.authLogin(email, password, rememberMe, captcha).then(response => {
-//             if (response.data.resultCode === 0) dispatch(authMeThunkCreator());
-//             else if (response.data.resultCode === 10) dispatch(getCaptchaThunkCreator())
-//             else {
-//                 let action = stopSubmit("login", {_error: response.data.messages[0] });
-//                 dispatch(action);
-//             }
-//         });
-//     }
-// }
-// export const authLogoutThunkCreator = () => {
-//     return (dispatch) => {
-//         authAPI.authLogout().then(response => {
-//             if (response.data.resultCode === 0) {
-//                 dispatch(clearAuthUserDataCreateAction());
-//             }
-//         });
-//     }
-// }
 
 export default userReducer;

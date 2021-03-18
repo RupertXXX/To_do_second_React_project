@@ -17,6 +17,10 @@
     border: 2px solid rgb(136,136,136);
     border-radius: 8px;
 }
+.mass_error{
+    color: rgb(227,30,37);
+    font-size: 20px;
+}
 .top_form{
     margin: 0 0 30px 0;
 }

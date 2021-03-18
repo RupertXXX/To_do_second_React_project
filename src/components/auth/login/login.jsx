@@ -31,7 +31,7 @@ const LoginForm = (props) => {
 }
 
 const LoginFormWithRedux = reduxForm({
-    form: 'register'
+    form: 'login'
 })(LoginForm);
 
 const Login = (props) => {
