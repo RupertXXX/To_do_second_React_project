@@ -44,6 +44,7 @@ const Settings = (props) => {
 
     let [isDeleteMode, setIsDeleteMode] = useState(false);
     let [deleteCheck, setDeleteCheck] = useState("");
+    let [changeProfileMode, setChangeProfileMode] = useState(false);
 
     const deleteUser = () => {
         if(deleteCheck === props.userData.name) props.deleteUser();
@@ -51,6 +52,7 @@ const Settings = (props) => {
     const updateUser = (formData, dispatch) => {
         props.updateUser(formData.name, formData.email, formData.password, formData.age);
         dispatch(reset('changeProfile'));
+        setChangeProfileMode((val) => !val);
     }
     // const imageChose = (e) => {
     //     if(e.target.files.length) props.setImage(e.target.files[0]);
@@ -65,9 +67,21 @@ const Settings = (props) => {
                 <div className={c.profile_text}> Email: {props.userData.email} </div>
             </div>
             <div className={c.title}>Change profile</div>
-            <div className={c.change_profile}>
-                <SettingsFormWithRedux onSubmit={updateUser} />
-            </div>
+            {
+                changeProfileMode
+                ?
+                    <div className={c.change_profile}>
+                        <div className={c.top}>
+                            <div></div>
+                            <div className={c.close} onClick={() => setChangeProfileMode((val) => !val)}>+</div>
+                        </div>
+                        <div>
+                            <SettingsFormWithRedux onSubmit={updateUser} />
+                        </div>
+                    </div>
+                :
+                    <button className={c.open} onClick={() => setChangeProfileMode((val) => !val)}>Change profile</button>        
+            }
             {/* <div>
                 <div className={c.title}>Download photo</div>
                 <input onChange={imageChose} type="file" />
