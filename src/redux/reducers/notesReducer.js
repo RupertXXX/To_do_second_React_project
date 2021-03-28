@@ -16,7 +16,7 @@ let initialState = {
     currentPage: 0,
     location: "notes",
     messages: [],
-    isLoading: false,
+    isLoading: true,
 };
 
 const notesReducer = (state = initialState, action) => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { InputText } from '../../../common/formControls/formControls';
 import { Field, reduxForm, reset } from 'redux-form';
-import { maxLengthCreator } from '../../../common/utils/validators/validators';
+import { maxLengthCreator, required } from '../../../common/utils/validators/validators';
 import c from './settings.module.css';
 
 const maxLength50 = maxLengthCreator(50);
@@ -12,16 +12,16 @@ const SettingsForm = (props) => {
     return <form className={c.main_form} onSubmit={props.handleSubmit}>
         <div className={c.top_form}>
             <div>
-                <Field className={c.name} validate={[maxLength50]} name={'name'} type={'text'} placeholder={'Name'} component={InputText} />
+                <Field className={c.name} validate={[maxLength50, required]} name={'name'} type={'text'} placeholder={'Name'} component={InputText} />
             </div>
             <div>
-                <Field className={c.email} validate={[maxLength50]} name={'email'} type={'text'} placeholder={'Email'} component={InputText} />
+                <Field className={c.email} validate={[maxLength50, required]} name={'email'} type={'text'} placeholder={'Email'} component={InputText} />
             </div>
             <div>
-                <Field className={c.password} validate={[maxLength30]} name={'password'} type={'password'} placeholder={'Password'} component={InputText} />
+                <Field className={c.password} validate={[maxLength30, required]} name={'password'} type={'password'} placeholder={'Password'} component={InputText} />
             </div>
             <div>
-                <Field className={c.age} validate={[maxLength10]} name={'age'} type={'text'} placeholder={'Age'} component={InputText} />
+                <Field className={c.age} validate={[maxLength10, required]} name={'age'} type={'text'} placeholder={'Age'} component={InputText} />
             </div>
             {
                 (props.error) &&
